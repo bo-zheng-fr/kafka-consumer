@@ -1,0 +1,2849 @@
+{
+  "type" : "record",
+  "name" : "POSLogRoot",
+  "namespace" : "org.nrf_arts.ixretail.namespace.avro",
+  "fields" : [ {
+    "name" : "transaction",
+    "type" : {
+      "type" : "record",
+      "name" : "TransactionDomainSpecific",
+      "fields" : [ {
+        "name" : "adeoBusinessUnitIdentifier",
+        "type" : {
+          "type" : "string",
+          "avro.java.string" : "String"
+        }
+      }, {
+        "name" : "adeoOperationalUnit",
+        "type" : {
+          "type" : "record",
+          "name" : "AdeoOperationalUnit",
+          "namespace" : "com.adeo.payment.data.repository.avro",
+          "fields" : [ {
+            "name" : "ID",
+            "type" : {
+              "type" : "string",
+              "avro.java.string" : "String"
+            }
+          }, {
+            "name" : "typeCode",
+            "type" : {
+              "type" : "string",
+              "avro.java.string" : "String"
+            }
+          } ]
+        }
+      }, {
+        "name" : "_entryMode",
+        "type" : [ "null", {
+          "type" : "string",
+          "avro.java.string" : "String"
+        } ],
+        "default" : null
+      }, {
+        "name" : "businessDayDate",
+        "type" : [ "null", {
+          "type" : "long",
+          "logicalType" : "timestamp-millis"
+        } ],
+        "default" : null
+      }, {
+        "name" : "beginDateTime",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "DateTimeCommonData",
+          "fields" : [ {
+            "name" : "value",
+            "type" : {
+              "type" : "long",
+              "logicalType" : "timestamp-millis"
+            }
+          }, {
+            "name" : "_typeCode",
+            "type" : [ "null", {
+              "type" : "string",
+              "avro.java.string" : "String"
+            } ],
+            "default" : null
+          } ]
+        } ],
+        "default" : null
+      }, {
+        "name" : "operatorBypassApproval",
+        "type" : [ "null", {
+          "type" : "array",
+          "items" : {
+            "type" : "record",
+            "name" : "ApprovalBase",
+            "fields" : [ {
+              "name" : "sequenceNumber",
+              "type" : "long"
+            }, {
+              "name" : "approverID",
+              "type" : {
+                "type" : "record",
+                "name" : "ApproverID",
+                "namespace" : "org.nrf_arts.ixretail.namespace.avro.approvalbase",
+                "fields" : [ {
+                  "name" : "value",
+                  "type" : {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  }
+                } ]
+              }
+            }, {
+              "name" : "approvalDateTime",
+              "type" : {
+                "type" : "long",
+                "logicalType" : "timestamp-millis"
+              }
+            }, {
+              "name" : "adeoReason",
+              "type" : [ "null", {
+                "type" : "record",
+                "name" : "AdeoReason",
+                "namespace" : "com.adeo.payment.data.repository.avro",
+                "fields" : [ {
+                  "name" : "value",
+                  "type" : {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  }
+                }, {
+                  "name" : "description",
+                  "type" : [ "null", {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  } ],
+                  "default" : null
+                } ]
+              } ],
+              "default" : null
+            } ]
+          },
+          "java-class" : "java.util.ArrayList"
+        } ],
+        "default" : null
+      }, {
+        "name" : "controlTransaction",
+        "type" : {
+          "type" : "record",
+          "name" : "ControlTransactionDomainSpecific",
+          "fields" : [ {
+            "name" : "adeo_transactionStatus",
+            "type" : [ "null", {
+              "type" : "string",
+              "avro.java.string" : "String"
+            } ],
+            "default" : null
+          }, {
+            "name" : "adeo_transactionLink",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "AdeoTransactionLink",
+              "namespace" : "com.adeo.payment.data.repository.avro",
+              "fields" : [ {
+                "name" : "transactionID",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "lineItemSequenceNumber",
+                "type" : [ "null", "long" ],
+                "default" : null
+              }, {
+                "name" : "_reasonCode",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "reasonCode",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "ReasonCodeCommonData",
+              "fields" : [ {
+                "name" : "value",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "_description",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "unauthorizedOpen",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "UnauthorizedOpen",
+              "namespace" : "org.nrf_arts.ixretail.namespace.avro.controltransactionbase",
+              "fields" : [ {
+                "name" : "value",
+                "type" : {
+                  "type" : "long",
+                  "logicalType" : "timestamp-millis"
+                }
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "heartbeat",
+            "type" : [ "null", {
+              "type" : "long",
+              "logicalType" : "timestamp-millis"
+            } ],
+            "default" : null
+          }, {
+            "name" : "operatorLock",
+            "type" : [ "null", {
+              "type" : "long",
+              "logicalType" : "timestamp-millis"
+            } ],
+            "default" : null
+          }, {
+            "name" : "receiptReprint",
+            "type" : [ "null", {
+              "type" : "array",
+              "items" : {
+                "type" : "record",
+                "name" : "POSLogCReceiptRePrint",
+                "fields" : [ {
+                  "name" : "lineSequenceNumber",
+                  "type" : [ "null", "long" ],
+                  "default" : null
+                }, {
+                  "name" : "transactionLink",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "TransactionLink",
+                    "namespace" : "org.nrf_arts.ixretail.namespace.avro.poslogcreceiptreprint",
+                    "fields" : [ {
+                      "name" : "transactionID",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "lineItemSequenceNumber",
+                      "type" : [ "null", "long" ],
+                      "default" : null
+                    }, {
+                      "name" : "_reasonCode",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    } ]
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "_typeCode",
+                  "type" : {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  }
+                }, {
+                  "name" : "adeoDuplicateNumber",
+                  "type" : [ "null", "int" ],
+                  "default" : null
+                } ]
+              },
+              "java-class" : "java.util.ArrayList"
+            } ],
+            "default" : null
+          }, {
+            "name" : "noSale",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "NoSaleType",
+              "fields" : [ {
+                "name" : "value",
+                "type" : {
+                  "type" : "long",
+                  "logicalType" : "timestamp-millis"
+                }
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "operatorSignOff",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "POSLogCPOSSession",
+              "fields" : [ {
+                "name" : "startDateTimestamp",
+                "type" : [ "null", {
+                  "type" : "long",
+                  "logicalType" : "timestamp-millis"
+                } ],
+                "default" : null
+              }, {
+                "name" : "endDateTimestamp",
+                "type" : [ "null", {
+                  "type" : "long",
+                  "logicalType" : "timestamp-millis"
+                } ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "applicationEvent",
+            "type" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string",
+                "avro.java.string" : "String"
+              },
+              "java-class" : "java.util.ArrayList"
+            }
+          }, {
+            "name" : "operatorUnLock",
+            "type" : [ "null", {
+              "type" : "long",
+              "logicalType" : "timestamp-millis"
+            } ],
+            "default" : null
+          }, {
+            "name" : "businessSOD",
+            "type" : [ "null", "POSLogCPOSSession" ],
+            "default" : null
+          }, {
+            "name" : "software",
+            "type" : {
+              "type" : "array",
+              "items" : {
+                "type" : "record",
+                "name" : "SoftwareCommonData",
+                "fields" : [ {
+                  "name" : "adeoSoftwareID",
+                  "type" : {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  }
+                }, {
+                  "name" : "majorVersion",
+                  "type" : [ "null", "int" ],
+                  "default" : null
+                }, {
+                  "name" : "minorVersion",
+                  "type" : [ "null", "int" ],
+                  "default" : null
+                }, {
+                  "name" : "fixVersion",
+                  "type" : [ "null", "int" ],
+                  "default" : null
+                }, {
+                  "name" : "_softwareTypeCode",
+                  "type" : {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  }
+                } ]
+              },
+              "java-class" : "java.util.ArrayList"
+            }
+          }, {
+            "name" : "operatorSignOn",
+            "type" : [ "null", "POSLogCPOSSession" ],
+            "default" : null
+          } ]
+        }
+      }, {
+        "name" : "tenderControlTransaction",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "TenderControlTransactionDomainSpecific",
+          "fields" : [ {
+            "name" : "operatorID",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "OperatorCommonData",
+              "fields" : [ {
+                "name" : "value",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "_operatorType",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "safeDrop",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "POSLogTCSafeDrop",
+              "fields" : [ {
+                "name" : "dropAmount",
+                "type" : {
+                  "type" : "record",
+                  "name" : "AmountCommonData",
+                  "fields" : [ {
+                    "name" : "value",
+                    "type" : {
+                      "type" : "string",
+                      "avro.java.string" : "String",
+                      "java-class" : "java.math.BigDecimal"
+                    }
+                  }, {
+                    "name" : "_currency",
+                    "type" : [ "null", {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    } ],
+                    "default" : null
+                  } ]
+                }
+              }, {
+                "name" : "envelopeID",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              }, {
+                "name" : "dropNumber",
+                "type" : [ "null", "long" ],
+                "default" : null
+              }, {
+                "name" : "safeID",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "tender",
+                "type" : {
+                  "type" : "record",
+                  "name" : "POSLogTCTenderTotal",
+                  "fields" : [ {
+                    "name" : "tenderTotals",
+                    "type" : {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "record",
+                        "name" : "TenderTotals",
+                        "namespace" : "org.nrf_arts.ixretail.namespace.avro.poslogtctendertotal",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        }, {
+                          "name" : "_tenderType",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "_denomination",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      },
+                      "java-class" : "java.util.ArrayList"
+                    }
+                  }, {
+                    "name" : "reason",
+                    "type" : [ "null", "ReasonCodeCommonData" ],
+                    "default" : null
+                  } ]
+                }
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "paidOut",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "POSLogTCPaidOutType",
+              "fields" : [ {
+                "name" : "amount",
+                "type" : {
+                  "type" : "record",
+                  "name" : "Amount",
+                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.poslogtotalsbase",
+                  "fields" : [ {
+                    "name" : "value",
+                    "type" : {
+                      "type" : "string",
+                      "avro.java.string" : "String",
+                      "java-class" : "java.math.BigDecimal"
+                    }
+                  }, {
+                    "name" : "_currency",
+                    "type" : [ "null", {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    } ],
+                    "default" : null
+                  } ]
+                }
+              }, {
+                "name" : "reason",
+                "type" : {
+                  "type" : "record",
+                  "name" : "Reason",
+                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.poslogtotalsbase",
+                  "fields" : [ {
+                    "name" : "value",
+                    "type" : {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    }
+                  }, {
+                    "name" : "_description",
+                    "type" : [ "null", {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    } ],
+                    "default" : null
+                  } ]
+                }
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "paidIn",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "POSLogTCPaidInType",
+              "fields" : [ {
+                "name" : "amount",
+                "type" : "org.nrf_arts.ixretail.namespace.avro.poslogtotalsbase.Amount"
+              }, {
+                "name" : "reason",
+                "type" : "org.nrf_arts.ixretail.namespace.avro.poslogtotalsbase.Reason"
+              }, {
+                "name" : "_tenderType",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "tenderLoan",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "POSLogTCTenderLoan",
+              "fields" : [ {
+                "name" : "envelopeID",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              }, {
+                "name" : "safeID",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              }, {
+                "name" : "totals",
+                "type" : "POSLogTCTenderTotal"
+              }, {
+                "name" : "reasonCode",
+                "type" : "ReasonCodeCommonData"
+              }, {
+                "name" : "_tenderType",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "_typeCode",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "tenderExchange",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "POSLogTCTenderExchange",
+              "fields" : [ {
+                "name" : "sourcePOS",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "targetPOS",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "exchangeDetail",
+                "type" : "POSLogTCTenderTotal"
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "tillSettle",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "SettleBase",
+              "fields" : [ {
+                "name" : "tenderSummary",
+                "type" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "record",
+                    "name" : "SettleTenderLedgerBase",
+                    "fields" : [ {
+                      "name" : "adeo_tenderId",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "AdeoPOSLogTenderID",
+                        "namespace" : "com.adeo.payment.data.repository.avro",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : "long"
+                        }, {
+                          "name" : "_tenderType",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "_currency",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      }
+                    }, {
+                      "name" : "beginning",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "SettleTenderLedgerTotals",
+                        "fields" : [ {
+                          "name" : "amount",
+                          "type" : "AmountCommonData"
+                        }, {
+                          "name" : "count",
+                          "type" : [ "null", "long" ],
+                          "default" : null
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "sales",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null
+                    }, {
+                      "name" : "returns",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null
+                    }, {
+                      "name" : "paidIn",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null
+                    }, {
+                      "name" : "paidOut",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null
+                    }, {
+                      "name" : "loan",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null
+                    }, {
+                      "name" : "pickup",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null
+                    }, {
+                      "name" : "deposit",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null
+                    }, {
+                      "name" : "ending",
+                      "type" : "SettleTenderLedgerTotals"
+                    }, {
+                      "name" : "over",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null
+                    }, {
+                      "name" : "short",
+                      "type" : [ "null", "SettleTenderLedgerTotals" ],
+                      "default" : null,
+                      "javaAnnotation" : [ "org.springframework.data.mongodb.core.mapping.Field(\"short\")", "com.fasterxml.jackson.annotation.JsonProperty(\"short\")" ]
+                    } ]
+                  },
+                  "java-class" : "java.util.ArrayList"
+                }
+              }, {
+                "name" : "adeo_reason",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "deposit",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "POSLogTCDeposit",
+              "fields" : [ {
+                "name" : "bank",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "account",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "bagID",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "amount",
+                "type" : "AmountCommonData"
+              }, {
+                "name" : "depositor",
+                "type" : "OperatorCommonData"
+              }, {
+                "name" : "depositDetail",
+                "type" : "POSLogTCTenderTotal"
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "adeo_tenderPickup",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "AdeoSettleTenderPickupBase",
+              "namespace" : "com.adeo.payment.data.repository.avro",
+              "fields" : [ {
+                "name" : "tender",
+                "type" : [ "null", {
+                  "type" : "record",
+                  "name" : "TenderTotalBase",
+                  "fields" : [ {
+                    "name" : "tenderTotal",
+                    "type" : {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "record",
+                        "name" : "POSLogTenderID",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        }, {
+                          "name" : "_denomination",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        } ]
+                      },
+                      "java-class" : "java.util.ArrayList"
+                    }
+                  }, {
+                    "name" : "reason",
+                    "type" : [ "null", "org.nrf_arts.ixretail.namespace.avro.ReasonCodeCommonData" ],
+                    "default" : null
+                  } ]
+                } ],
+                "default" : null
+              }, {
+                "name" : "totals",
+                "type" : [ "null", {
+                  "type" : "record",
+                  "name" : "POSLogTotalsBase",
+                  "fields" : [ {
+                    "name" : "amount",
+                    "type" : "org.nrf_arts.ixretail.namespace.avro.poslogtotalsbase.Amount"
+                  }, {
+                    "name" : "count",
+                    "type" : "long"
+                  } ]
+                } ],
+                "default" : null
+              }, {
+                "name" : "_tenderType",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "_typeCode",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "adeo_envelopeID",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "safeSettle",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "POSLogTCSafeSettle",
+              "fields" : [ {
+                "name" : "workstationID",
+                "type" : {
+                  "type" : "record",
+                  "name" : "WorkstationIDCommonData",
+                  "fields" : [ {
+                    "name" : "value",
+                    "type" : {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    }
+                  }, {
+                    "name" : "_typeCode",
+                    "type" : [ "null", {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    } ],
+                    "default" : null
+                  }, {
+                    "name" : "_serialNumber",
+                    "type" : [ "null", {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    } ],
+                    "default" : null
+                  }, {
+                    "name" : "_workstationLocation",
+                    "type" : [ "null", {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    } ],
+                    "default" : null
+                  } ]
+                }
+              }, {
+                "name" : "tenderOpenBalanceTotalAmount",
+                "type" : "AmountCommonData"
+              }, {
+                "name" : "tenderCloseBalanceTotalAmount",
+                "type" : "AmountCommonData"
+              }, {
+                "name" : "overTenderDiscrepancyTotalAmount",
+                "type" : [ "null", "AmountCommonData" ],
+                "default" : null
+              }, {
+                "name" : "underTenderDiscrepancyTotalAmount",
+                "type" : [ "null", "AmountCommonData" ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "adeo_transactionStatus",
+            "type" : [ "null", {
+              "type" : "string",
+              "avro.java.string" : "String"
+            } ],
+            "default" : null
+          }, {
+            "name" : "adeo_transactionLink",
+            "type" : [ "null", "com.adeo.payment.data.repository.avro.AdeoTransactionLink" ],
+            "default" : null
+          } ]
+        } ],
+        "default" : null
+      }, {
+        "name" : "_trainingModeFlag",
+        "type" : [ "null", "boolean" ],
+        "default" : null
+      }, {
+        "name" : "_offlineFlag",
+        "type" : [ "null", "boolean" ],
+        "default" : null
+      }, {
+        "name" : "channel",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "ChannelCommonData",
+          "fields" : [ {
+            "name" : "channelID",
+            "type" : {
+              "type" : "record",
+              "name" : "ChannelIDType",
+              "fields" : [ {
+                "name" : "value",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              } ]
+            }
+          }, {
+            "name" : "touchPointID",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "TouchPointIDType",
+              "fields" : [ {
+                "name" : "value",
+                "type" : {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                }
+              }, {
+                "name" : "_name",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "_onLineOffLineTypeCode",
+            "type" : {
+              "type" : "enum",
+              "name" : "OnlineOfflineTypeCodeEnumeration",
+              "symbols" : [ "OnLine", "OffLine" ]
+            }
+          } ]
+        } ],
+        "default" : null
+      }, {
+        "name" : "workstationID",
+        "type" : "WorkstationIDCommonData"
+      }, {
+        "name" : "sequenceNumber",
+        "type" : "long"
+      }, {
+        "name" : "transactionID",
+        "type" : {
+          "type" : "string",
+          "avro.java.string" : "String"
+        }
+      }, {
+        "name" : "posLogDateTime",
+        "type" : {
+          "type" : "array",
+          "items" : {
+            "type" : "record",
+            "name" : "POSLogDateTime",
+            "namespace" : "org.nrf_arts.ixretail.namespace.avro.transactionbase",
+            "fields" : [ {
+              "name" : "value",
+              "type" : {
+                "type" : "long",
+                "logicalType" : "timestamp-millis"
+              }
+            }, {
+              "name" : "_typeCode",
+              "type" : {
+                "type" : "string",
+                "avro.java.string" : "String"
+              }
+            }, {
+              "name" : "_offset",
+              "type" : [ "null", {
+                "type" : "string",
+                "avro.java.string" : "String"
+              } ],
+              "default" : null
+            } ]
+          },
+          "java-class" : "java.util.ArrayList"
+        }
+      }, {
+        "name" : "operatorID",
+        "type" : [ "null", {
+          "type" : "array",
+          "items" : {
+            "type" : "record",
+            "name" : "OperatorID",
+            "namespace" : "org.nrf_arts.ixretail.namespace.avro.transactionbase",
+            "fields" : [ {
+              "name" : "value",
+              "type" : {
+                "type" : "string",
+                "avro.java.string" : "String"
+              }
+            }, {
+              "name" : "_operatorType",
+              "type" : [ "null", {
+                "type" : "string",
+                "avro.java.string" : "String"
+              } ],
+              "default" : null
+            } ]
+          },
+          "java-class" : "java.util.ArrayList"
+        } ],
+        "default" : null
+      }, {
+        "name" : "currencyCode",
+        "type" : [ "null", {
+          "type" : "string",
+          "avro.java.string" : "String"
+        } ],
+        "default" : null
+      }, {
+        "name" : "receiptDateTime",
+        "type" : [ "null", "DateTimeCommonData" ],
+        "default" : null
+      }, {
+        "name" : "receiptNumber",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "ReceiptNumber",
+          "namespace" : "org.nrf_arts.ixretail.namespace.avro.transactionbase",
+          "fields" : [ {
+            "name" : "value",
+            "type" : {
+              "type" : "string",
+              "avro.java.string" : "String"
+            }
+          } ]
+        } ],
+        "default" : null
+      }, {
+        "name" : "invoiceNumber",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "InvoiceNumber",
+          "namespace" : "org.nrf_arts.ixretail.namespace.avro.transactionbase",
+          "fields" : [ {
+            "name" : "value",
+            "type" : {
+              "type" : "string",
+              "avro.java.string" : "String"
+            }
+          }, {
+            "name" : "_dateTime",
+            "type" : [ "null", {
+              "type" : "long",
+              "logicalType" : "timestamp-millis"
+            } ],
+            "default" : null
+          } ]
+        } ],
+        "default" : null
+      }, {
+        "name" : "customerOrderTransaction",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "CustomerOrderTransactionBase",
+          "fields" : [ {
+            "name" : "_transactionStatus",
+            "type" : {
+              "type" : "string",
+              "avro.java.string" : "String"
+            }
+          }, {
+            "name" : "lineItem",
+            "type" : {
+              "type" : "array",
+              "items" : {
+                "type" : "record",
+                "name" : "LineItemDomainSpecific",
+                "fields" : [ {
+                  "name" : "adeoTransactionLink",
+                  "type" : [ "null", {
+                    "type" : "array",
+                    "items" : "com.adeo.payment.data.repository.avro.AdeoTransactionLink",
+                    "java-class" : "java.util.ArrayList"
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "adeoExternalLink",
+                  "type" : [ "null", {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "record",
+                      "name" : "AdeoExternalLink",
+                      "namespace" : "com.adeo.payment.data.repository.avro",
+                      "fields" : [ {
+                        "name" : "typeCode",
+                        "type" : {
+                          "type" : "string",
+                          "avro.java.string" : "String"
+                        }
+                      }, {
+                        "name" : "ID",
+                        "type" : {
+                          "type" : "string",
+                          "avro.java.string" : "String"
+                        }
+                      }, {
+                        "name" : "detailID",
+                        "type" : [ "null", {
+                          "type" : "string",
+                          "avro.java.string" : "String"
+                        } ],
+                        "default" : null
+                      } ]
+                    },
+                    "java-class" : "java.util.ArrayList"
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "operatorBypassApproval",
+                  "type" : [ "null", {
+                    "type" : "array",
+                    "items" : "ApprovalBase",
+                    "java-class" : "java.util.ArrayList"
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "_voidFlag",
+                  "type" : [ "null", "boolean" ],
+                  "default" : null
+                }, {
+                  "name" : "_entryMethod",
+                  "type" : {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  }
+                }, {
+                  "name" : "sequenceNumber",
+                  "type" : "long"
+                }, {
+                  "name" : "itemLink",
+                  "type" : [ "null", {
+                    "type" : "array",
+                    "items" : "long",
+                    "java-class" : "java.util.ArrayList"
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "dateTime",
+                  "type" : {
+                    "type" : "array",
+                    "items" : "DateTimeCommonData",
+                    "java-class" : "java.util.ArrayList"
+                  }
+                }, {
+                  "name" : "saleOfGiftCard",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "TenderGiftCardBase",
+                    "fields" : [ {
+                      "name" : "cardNumber",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "dateSold",
+                      "type" : [ "null", {
+                        "type" : "long",
+                        "logicalType" : "timestamp-millis"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "dateActivated",
+                      "type" : [ "null", {
+                        "type" : "long",
+                        "logicalType" : "timestamp-millis"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "expirationDate",
+                      "type" : [ "null", {
+                        "type" : "long",
+                        "logicalType" : "timestamp-millis"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "initialBalance",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "InitialBalance",
+                        "namespace" : "org.nrf_arts.ixretail.namespace.avro.tendergiftcardbase",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "currentBalance",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "CurrentBalance",
+                        "namespace" : "org.nrf_arts.ixretail.namespace.avro.tendergiftcardbase",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "authorization",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "TenderAuthorizationDomainSpecific",
+                        "fields" : [ {
+                          "name" : "requestedAmount",
+                          "type" : "AmountCommonData"
+                        }, {
+                          "name" : "authorizationCode",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "referenceNumber",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "merchantNumber",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "authorizationDateTime",
+                          "type" : [ "null", {
+                            "type" : "long",
+                            "logicalType" : "timestamp-millis"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "authorizationDescription",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "receiptText",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "_verifiedByPINFlag",
+                          "type" : [ "null", "boolean" ],
+                          "default" : null
+                        }, {
+                          "name" : "_signatureRequiredFlag",
+                          "type" : [ "null", "boolean" ],
+                          "default" : null
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "adeoExtendedAmount",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "AdeoExtendedAmount",
+                        "namespace" : "com.adeo.payment.data.repository.avro",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        }, {
+                          "name" : "_currency",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "adeoTypeCode",
+                      "type" : [ "null", {
+                        "type" : "enum",
+                        "name" : "AdeoTypeCode",
+                        "namespace" : "com.adeo.payment.data.repository.avro",
+                        "symbols" : [ "sale", "refund" ]
+                      } ],
+                      "default" : null
+                    } ]
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "storedValueFundSale",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "StoredValueFundBase",
+                    "fields" : [ {
+                      "name" : "account",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "StoredValueAccountType",
+                        "fields" : [ {
+                          "name" : "accountID",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "accountName",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "_action",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "_typeCode",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "extendedAmount",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "ExtendedAmountType",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        }, {
+                          "name" : "_currency",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      }
+                    }, {
+                      "name" : "serialNumber",
+                      "type" : [ "null", {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "record",
+                          "name" : "TicketSerialNumberType",
+                          "fields" : [ {
+                            "name" : "value",
+                            "type" : {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            }
+                          }, {
+                            "name" : "_type",
+                            "type" : [ "null", {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            } ],
+                            "default" : null
+                          } ]
+                        },
+                        "java-class" : "java.util.ArrayList"
+                      } ],
+                      "default" : null
+                    } ]
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "sale",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "SaleBase",
+                    "fields" : [ {
+                      "name" : "itemNotOnFileFlag",
+                      "type" : [ "null", "boolean" ],
+                      "default" : null
+                    }, {
+                      "name" : "taxIncludedInPriceFlag",
+                      "type" : [ "null", "boolean" ],
+                      "default" : null
+                    }, {
+                      "name" : "merchandiseHierarchy",
+                      "type" : {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "record",
+                          "name" : "MerchandiseHierarchyCommonData",
+                          "fields" : [ {
+                            "name" : "value",
+                            "type" : {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            }
+                          }, {
+                            "name" : "_level",
+                            "type" : [ "null", {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            } ],
+                            "default" : null
+                          }, {
+                            "name" : "_id",
+                            "type" : {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            }
+                          } ]
+                        },
+                        "java-class" : "java.util.ArrayList"
+                      }
+                    }, {
+                      "name" : "adeoSellerID",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "AdeoSellerID",
+                        "namespace" : "com.adeo.payment.data.repository.avro",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "_name",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "itemID",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "ItemID",
+                        "namespace" : "org.nrf_arts.ixretail.namespace.avro.itembase",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "_type",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      }
+                    }, {
+                      "name" : "description",
+                      "type" : [ "null", {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "record",
+                          "name" : "DescriptionCommonData",
+                          "fields" : [ {
+                            "name" : "value",
+                            "type" : {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            }
+                          }, {
+                            "name" : "_typeCode",
+                            "type" : [ "null", {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            } ],
+                            "default" : null
+                          } ]
+                        },
+                        "java-class" : "java.util.ArrayList"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "regularSalesUnitPrice",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "UnitPriceCommonData",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        } ]
+                      }
+                    }, {
+                      "name" : "extendedAmount",
+                      "type" : "ExtendedAmountType"
+                    }, {
+                      "name" : "extendedDiscountAmount",
+                      "type" : [ "null", "AmountCommonData" ],
+                      "default" : null
+                    }, {
+                      "name" : "quantity",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "QuantityCommonData",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        }, {
+                          "name" : "_units",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "_unitOfMeasureCode",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      }
+                    }, {
+                      "name" : "adeoCollaboratorID",
+                      "type" : [ "null", {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "retailPriceModifier",
+                      "type" : [ "null", {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "record",
+                          "name" : "RetailPriceModifierDomainSpecific",
+                          "fields" : [ {
+                            "name" : "priceDerivationRule",
+                            "type" : {
+                              "type" : "record",
+                              "name" : "PriceDerivationRuleBase",
+                              "fields" : [ {
+                                "name" : "priceDerivationRuleID",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              }, {
+                                "name" : "amount",
+                                "type" : [ "null", {
+                                  "type" : "record",
+                                  "name" : "Amount",
+                                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.pricederivationrulebase",
+                                  "fields" : [ {
+                                    "name" : "_action",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String"
+                                    }
+                                  }, {
+                                    "name" : "value",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String",
+                                      "java-class" : "java.math.BigDecimal"
+                                    }
+                                  } ]
+                                } ],
+                                "default" : null
+                              }, {
+                                "name" : "percent",
+                                "type" : [ "null", {
+                                  "type" : "record",
+                                  "name" : "Percent",
+                                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.pricederivationrulebase",
+                                  "fields" : [ {
+                                    "name" : "value",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String",
+                                      "java-class" : "java.math.BigDecimal"
+                                    }
+                                  }, {
+                                    "name" : "_action",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String"
+                                    }
+                                  } ]
+                                } ],
+                                "default" : null
+                              }, {
+                                "name" : "reasonCode",
+                                "type" : {
+                                  "type" : "record",
+                                  "name" : "ReasonCode",
+                                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.pricederivationrulebase",
+                                  "fields" : [ {
+                                    "name" : "value",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String"
+                                    }
+                                  } ]
+                                }
+                              }, {
+                                "name" : "_method",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              }, {
+                                "name" : "_applicationType",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              }, {
+                                "name" : "_reference",
+                                "type" : [ "null", {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                } ],
+                                "default" : null
+                              }, {
+                                "name" : "adeoApplicationScope",
+                                "type" : [ "null", {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                } ],
+                                "default" : null
+                              } ]
+                            }
+                          }, {
+                            "name" : "sequenceNumber",
+                            "type" : "long"
+                          }, {
+                            "name" : "amount",
+                            "type" : {
+                              "type" : "record",
+                              "name" : "Amount",
+                              "namespace" : "org.nrf_arts.ixretail.namespace.avro.retailpricemodifierbase",
+                              "fields" : [ {
+                                "name" : "_action",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              }, {
+                                "name" : "value",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String",
+                                  "java-class" : "java.math.BigDecimal"
+                                }
+                              } ]
+                            }
+                          }, {
+                            "name" : "percent",
+                            "type" : [ "null", {
+                              "type" : "record",
+                              "name" : "Percent",
+                              "namespace" : "org.nrf_arts.ixretail.namespace.avro.retailpricemodifierbase",
+                              "fields" : [ {
+                                "name" : "value",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String",
+                                  "java-class" : "java.math.BigDecimal"
+                                }
+                              }, {
+                                "name" : "_action",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              } ]
+                            } ],
+                            "default" : null
+                          }, {
+                            "name" : "previousPrice",
+                            "type" : {
+                              "type" : "record",
+                              "name" : "PreviousPrice",
+                              "namespace" : "org.nrf_arts.ixretail.namespace.avro.retailpricemodifierbase",
+                              "fields" : [ {
+                                "name" : "value",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String",
+                                  "java-class" : "java.math.BigDecimal"
+                                }
+                              } ]
+                            }
+                          }, {
+                            "name" : "newPrice",
+                            "type" : {
+                              "type" : "record",
+                              "name" : "NewPrice",
+                              "namespace" : "org.nrf_arts.ixretail.namespace.avro.retailpricemodifierbase",
+                              "fields" : [ {
+                                "name" : "value",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String",
+                                  "java-class" : "java.math.BigDecimal"
+                                }
+                              } ]
+                            }
+                          }, {
+                            "name" : "promotionID",
+                            "type" : [ "null", {
+                              "type" : "record",
+                              "name" : "PromotionID",
+                              "namespace" : "org.nrf_arts.ixretail.namespace.avro.retailpricemodifierbase",
+                              "fields" : [ {
+                                "name" : "value",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              }, {
+                                "name" : "_typeCode",
+                                "type" : [ "null", {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                } ],
+                                "default" : null
+                              } ]
+                            } ],
+                            "default" : null
+                          }, {
+                            "name" : "description",
+                            "type" : [ "null", {
+                              "type" : "array",
+                              "items" : "DescriptionCommonData",
+                              "java-class" : "java.util.ArrayList"
+                            } ],
+                            "default" : null
+                          }, {
+                            "name" : "quantity",
+                            "type" : [ "null", "QuantityCommonData" ],
+                            "default" : null
+                          }, {
+                            "name" : "_methodCode",
+                            "type" : {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            }
+                          }, {
+                            "name" : "adeoFloorPriceReached",
+                            "type" : [ "null", "boolean" ],
+                            "default" : null
+                          } ]
+                        },
+                        "java-class" : "java.util.ArrayList"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "tax",
+                      "type" : {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "record",
+                          "name" : "ItemTaxType",
+                          "fields" : [ {
+                            "name" : "taxExemption",
+                            "type" : [ "null", {
+                              "type" : "record",
+                              "name" : "TaxExemptionBase",
+                              "fields" : [ {
+                                "name" : "customerExemptionID",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              }, {
+                                "name" : "exemptTaxAmount",
+                                "type" : {
+                                  "type" : "record",
+                                  "name" : "ExemptTaxAmount",
+                                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.taxexemptionbase",
+                                  "fields" : [ {
+                                    "name" : "value",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String",
+                                      "java-class" : "java.math.BigDecimal"
+                                    }
+                                  } ]
+                                }
+                              }, {
+                                "name" : "adeoTaxRuleID",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              } ]
+                            } ],
+                            "default" : null
+                          }, {
+                            "name" : "taxOverride",
+                            "type" : [ "null", {
+                              "type" : "record",
+                              "name" : "TaxOverrideBase",
+                              "fields" : [ {
+                                "name" : "customerOverrideID",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              }, {
+                                "name" : "taxableAmount",
+                                "type" : {
+                                  "type" : "record",
+                                  "name" : "TaxableAmount",
+                                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.taxoverridebase",
+                                  "fields" : [ {
+                                    "name" : "value",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String",
+                                      "java-class" : "java.math.BigDecimal"
+                                    }
+                                  } ]
+                                }
+                              }, {
+                                "name" : "originalPercent",
+                                "type" : [ "null", {
+                                  "type" : "string",
+                                  "avro.java.string" : "String",
+                                  "java-class" : "java.math.BigDecimal"
+                                } ],
+                                "default" : null
+                              }, {
+                                "name" : "originalTaxAmount",
+                                "type" : {
+                                  "type" : "record",
+                                  "name" : "OriginalTaxAmount",
+                                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.taxoverridebase",
+                                  "fields" : [ {
+                                    "name" : "value",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String",
+                                      "java-class" : "java.math.BigDecimal"
+                                    }
+                                  } ]
+                                }
+                              }, {
+                                "name" : "newTaxPercent",
+                                "type" : [ "null", {
+                                  "type" : "string",
+                                  "avro.java.string" : "String",
+                                  "java-class" : "java.math.BigDecimal"
+                                } ],
+                                "default" : null
+                              }, {
+                                "name" : "newTaxAmount",
+                                "type" : {
+                                  "type" : "record",
+                                  "name" : "NewTaxAmount",
+                                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.taxoverridebase",
+                                  "fields" : [ {
+                                    "name" : "value",
+                                    "type" : {
+                                      "type" : "string",
+                                      "avro.java.string" : "String",
+                                      "java-class" : "java.math.BigDecimal"
+                                    }
+                                  } ]
+                                }
+                              }, {
+                                "name" : "adeoTaxRuleID",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String"
+                                }
+                              } ]
+                            } ],
+                            "default" : null
+                          }, {
+                            "name" : "taxPerUnitAmount",
+                            "type" : [ "null", "AmountCommonData" ],
+                            "default" : null
+                          }, {
+                            "name" : "sequenceNumber",
+                            "type" : [ "null", "long" ],
+                            "default" : null
+                          }, {
+                            "name" : "taxableAmount",
+                            "type" : {
+                              "type" : "record",
+                              "name" : "TaxableAmount",
+                              "namespace" : "org.nrf_arts.ixretail.namespace.avro.taxbase",
+                              "fields" : [ {
+                                "name" : "_taxIncludedInTaxableAmountFlag",
+                                "type" : "boolean"
+                              }, {
+                                "name" : "value",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String",
+                                  "java-class" : "java.math.BigDecimal"
+                                }
+                              } ]
+                            }
+                          }, {
+                            "name" : "amount",
+                            "type" : "AmountCommonData"
+                          }, {
+                            "name" : "percent",
+                            "type" : [ "null", {
+                              "type" : "string",
+                              "avro.java.string" : "String",
+                              "java-class" : "java.math.BigDecimal"
+                            } ],
+                            "default" : null
+                          }, {
+                            "name" : "taxRuleID",
+                            "type" : {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            }
+                          }, {
+                            "name" : "rounding",
+                            "type" : [ "null", {
+                              "type" : "record",
+                              "name" : "RoundingCommonData",
+                              "fields" : [ {
+                                "name" : "_roundingDirection",
+                                "type" : {
+                                  "type" : "enum",
+                                  "name" : "RoundingDirectionCommonDataTypeCodesEnumeration",
+                                  "symbols" : [ "Up", "Down" ]
+                                }
+                              }, {
+                                "name" : "value",
+                                "type" : {
+                                  "type" : "string",
+                                  "avro.java.string" : "String",
+                                  "java-class" : "java.math.BigDecimal"
+                                }
+                              } ]
+                            } ],
+                            "default" : null
+                          }, {
+                            "name" : "_taxType",
+                            "type" : {
+                              "type" : "string",
+                              "avro.java.string" : "String"
+                            }
+                          }, {
+                            "name" : "_typeCode",
+                            "type" : [ "null", {
+                              "type" : "enum",
+                              "name" : "TaxSaleTypeCodeEnumeration",
+                              "symbols" : [ "Sale", "Refund" ]
+                            } ],
+                            "default" : null
+                          } ]
+                        },
+                        "java-class" : "java.util.ArrayList"
+                      }
+                    }, {
+                      "name" : "serialNumber",
+                      "type" : [ "null", {
+                        "type" : "array",
+                        "items" : "TicketSerialNumberType",
+                        "java-class" : "java.util.ArrayList"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "_itemType",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "adeoUnitSupplyPrice",
+                      "type" : [ "null", "AmountCommonData" ],
+                      "default" : null
+                    } ]
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "return",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "ReturnBase",
+                    "fields" : [ {
+                      "name" : "itemNotOnFileFlag",
+                      "type" : [ "null", "boolean" ],
+                      "default" : null
+                    }, {
+                      "name" : "taxIncludedInPriceFlag",
+                      "type" : [ "null", "boolean" ],
+                      "default" : null
+                    }, {
+                      "name" : "merchandiseHierarchy",
+                      "type" : {
+                        "type" : "array",
+                        "items" : "MerchandiseHierarchyCommonData",
+                        "java-class" : "java.util.ArrayList"
+                      }
+                    }, {
+                      "name" : "itemID",
+                      "type" : "org.nrf_arts.ixretail.namespace.avro.itembase.ItemID"
+                    }, {
+                      "name" : "description",
+                      "type" : [ "null", {
+                        "type" : "array",
+                        "items" : "DescriptionCommonData",
+                        "java-class" : "java.util.ArrayList"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "regularSalesUnitPrice",
+                      "type" : "UnitPriceCommonData"
+                    }, {
+                      "name" : "extendedAmount",
+                      "type" : "ExtendedAmountType"
+                    }, {
+                      "name" : "extendedDiscountAmount",
+                      "type" : [ "null", "AmountCommonData" ],
+                      "default" : null
+                    }, {
+                      "name" : "quantity",
+                      "type" : "QuantityCommonData"
+                    }, {
+                      "name" : "retailPriceModifier",
+                      "type" : [ "null", {
+                        "type" : "array",
+                        "items" : "RetailPriceModifierDomainSpecific",
+                        "java-class" : "java.util.ArrayList"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "tax",
+                      "type" : {
+                        "type" : "array",
+                        "items" : "ItemTaxType",
+                        "java-class" : "java.util.ArrayList"
+                      }
+                    }, {
+                      "name" : "serialNumber",
+                      "type" : [ "null", {
+                        "type" : "array",
+                        "items" : "TicketSerialNumberType",
+                        "java-class" : "java.util.ArrayList"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "_itemType",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "adeoSellerID",
+                      "type" : [ "null", "com.adeo.payment.data.repository.avro.AdeoSellerID" ],
+                      "default" : null
+                    }, {
+                      "name" : "adeoUnitSupplyPrice",
+                      "type" : [ "null", "AmountCommonData" ],
+                      "default" : null
+                    } ]
+                  } ],
+                  "default" : null,
+                  "javaAnnotation" : [ "org.springframework.data.mongodb.core.mapping.Field(\"return\")", "com.fasterxml.jackson.annotation.JsonProperty(\"return\")" ]
+                }, {
+                  "name" : "giftCertificate",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "GiftCertificateBase",
+                    "fields" : [ {
+                      "name" : "giftCertificateID",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "faceValue",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "FaceValue",
+                        "namespace" : "org.nrf_arts.ixretail.namespace.avro.giftcertificatecommondata",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        } ]
+                      }
+                    }, {
+                      "name" : "expirationDate",
+                      "type" : [ "null", {
+                        "type" : "long",
+                        "logicalType" : "timestamp-millis"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "adeoReason",
+                      "type" : [ "null", "com.adeo.payment.data.repository.avro.AdeoReason" ],
+                      "default" : null
+                    } ]
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "loyaltyRedemption",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "LoyaltyRedemptionBase",
+                    "fields" : [ {
+                      "name" : "voucher",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "TenderVoucherBase",
+                        "fields" : [ {
+                          "name" : "faceValueAmount",
+                          "type" : "AmountCommonData"
+                        }, {
+                          "name" : "serialNumber",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "expirationDate",
+                          "type" : [ "null", {
+                            "type" : "long",
+                            "logicalType" : "timestamp-millis"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "unspentAmount",
+                          "type" : [ "null", {
+                            "type" : "record",
+                            "name" : "UnspentAmountType",
+                            "fields" : [ {
+                              "name" : "value",
+                              "type" : {
+                                "type" : "string",
+                                "avro.java.string" : "String",
+                                "java-class" : "java.math.BigDecimal"
+                              }
+                            } ]
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "_typeCode",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        } ]
+                      }
+                    } ]
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "tender",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "TenderDomainSpecific",
+                    "fields" : [ {
+                      "name" : "tenderID",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "POSLogTenderID",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        }, {
+                          "name" : "_tenderType",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        } ]
+                      }
+                    }, {
+                      "name" : "moneyOrder",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "TenderCheckBase",
+                        "fields" : [ {
+                          "name" : "bankID",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "checkNumber",
+                          "type" : [ "null", "long" ],
+                          "default" : null
+                        }, {
+                          "name" : "accountNumber",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "fullMICR",
+                          "type" : [ "null", {
+                            "type" : "record",
+                            "name" : "FullMICR",
+                            "namespace" : "org.nrf_arts.ixretail.namespace.avro.tendercheckbase",
+                            "fields" : [ {
+                              "name" : "value",
+                              "type" : {
+                                "type" : "string",
+                                "avro.java.string" : "String"
+                              }
+                            } ]
+                          } ],
+                          "default" : null
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "amount",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "Amount",
+                        "namespace" : "org.nrf_arts.ixretail.namespace.avro.tenderbase",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        } ]
+                      }
+                    }, {
+                      "name" : "authorization",
+                      "type" : [ "null", "TenderAuthorizationDomainSpecific" ],
+                      "default" : null
+                    }, {
+                      "name" : "foreignCurrency",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "TenderForeignCurrencyBase",
+                        "fields" : [ {
+                          "name" : "currencyCode",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "originalFaceAmount",
+                          "type" : {
+                            "type" : "record",
+                            "name" : "OriginalFaceAmount",
+                            "namespace" : "org.nrf_arts.ixretail.namespace.avro.tenderforeigncurrencybase",
+                            "fields" : [ {
+                              "name" : "value",
+                              "type" : {
+                                "type" : "string",
+                                "avro.java.string" : "String",
+                                "java-class" : "java.math.BigDecimal"
+                              }
+                            } ]
+                          }
+                        }, {
+                          "name" : "exchangeRate",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "rounding",
+                      "type" : [ "null", "RoundingCommonData" ],
+                      "default" : null
+                    }, {
+                      "name" : "check",
+                      "type" : [ "null", "TenderCheckBase" ],
+                      "default" : null
+                    }, {
+                      "name" : "creditDebit",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "TenderCreditDebitDomainSpecific",
+                        "fields" : [ {
+                          "name" : "primaryAccountNumber",
+                          "type" : {
+                            "type" : "record",
+                            "name" : "EncryptedDataType",
+                            "fields" : [ {
+                              "name" : "value",
+                              "type" : {
+                                "type" : "string",
+                                "avro.java.string" : "String"
+                              }
+                            } ]
+                          }
+                        }, {
+                          "name" : "expirationDate",
+                          "type" : [ "null", {
+                            "type" : "long",
+                            "logicalType" : "timestamp-millis"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "track1Data",
+                          "type" : [ "null", "EncryptedDataType" ],
+                          "default" : null
+                        }, {
+                          "name" : "track2Data",
+                          "type" : [ "null", "EncryptedDataType" ],
+                          "default" : null
+                        }, {
+                          "name" : "track3Data",
+                          "type" : [ "null", "EncryptedDataType" ],
+                          "default" : null
+                        }, {
+                          "name" : "track4Data",
+                          "type" : [ "null", "EncryptedDataType" ],
+                          "default" : null
+                        }, {
+                          "name" : "_typeCode",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        }, {
+                          "name" : "_contactlessPaymentFlag",
+                          "type" : [ "null", "boolean" ],
+                          "default" : null
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "voucher",
+                      "type" : [ "null", "TenderVoucherBase" ],
+                      "default" : null
+                    }, {
+                      "name" : "loyaltyRedemption",
+                      "type" : [ "null", "LoyaltyRedemptionBase" ],
+                      "default" : null
+                    }, {
+                      "name" : "storeAccount",
+                      "type" : [ "null", {
+                        "type" : "record",
+                        "name" : "TenderAccountInfoBase",
+                        "fields" : [ {
+                          "name" : "accountID",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          }
+                        }, {
+                          "name" : "accountName",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "giftCard",
+                      "type" : [ "null", "TenderGiftCardBase" ],
+                      "default" : null
+                    }, {
+                      "name" : "_typeCode",
+                      "type" : {
+                        "type" : "enum",
+                        "name" : "TenderSalesTypeCodeEnumeration",
+                        "symbols" : [ "Sale", "Refund", "Reissue", "PreAuthorize" ]
+                      }
+                    } ]
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "tenderChange",
+                  "type" : [ "null", "TenderDomainSpecific" ],
+                  "default" : null
+                }, {
+                  "name" : "deposit",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "DepositBase",
+                    "fields" : [ {
+                      "name" : "accountNumber",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "amount",
+                      "type" : {
+                        "type" : "record",
+                        "name" : "Amount",
+                        "namespace" : "org.nrf_arts.ixretail.namespace.avro.paymentonaccountbase",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        }, {
+                          "name" : "_currency",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      }
+                    }, {
+                      "name" : "_refund",
+                      "type" : [ "null", "boolean" ],
+                      "default" : null
+                    }, {
+                      "name" : "adeoTax",
+                      "type" : [ "null", {
+                        "type" : "array",
+                        "items" : "ItemTaxType",
+                        "java-class" : "java.util.ArrayList"
+                      } ],
+                      "default" : null
+                    } ]
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "coupon",
+                  "type" : [ "null", {
+                    "type" : "record",
+                    "name" : "TenderCouponBase",
+                    "fields" : [ {
+                      "name" : "promotionCode",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    }, {
+                      "name" : "scanCode",
+                      "type" : [ "null", {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      } ],
+                      "default" : null
+                    }, {
+                      "name" : "_couponType",
+                      "type" : {
+                        "type" : "string",
+                        "avro.java.string" : "String"
+                      }
+                    } ]
+                  } ],
+                  "default" : null
+                } ]
+              },
+              "java-class" : "java.util.ArrayList"
+            }
+          }, {
+            "name" : "total",
+            "type" : {
+              "type" : "array",
+              "items" : {
+                "type" : "record",
+                "name" : "TransactionTotalBase",
+                "fields" : [ {
+                  "name" : "value",
+                  "type" : {
+                    "type" : "string",
+                    "avro.java.string" : "String",
+                    "java-class" : "java.math.BigDecimal"
+                  }
+                }, {
+                  "name" : "_totalType",
+                  "type" : {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  }
+                }, {
+                  "name" : "_typeCode",
+                  "type" : {
+                    "type" : "enum",
+                    "name" : "TotalSalesTypeCodeEnumeration",
+                    "symbols" : [ "Sale", "Return", "PreAuthorize" ]
+                  }
+                } ]
+              },
+              "java-class" : "java.util.ArrayList"
+            }
+          }, {
+            "name" : "customer",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "CustomerDomainSpecific",
+              "fields" : [ {
+                "name" : "affiliatedOrganization",
+                "type" : [ "null", {
+                  "type" : "record",
+                  "name" : "AffiliatedOrganization",
+                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.customerdomainspecific",
+                  "fields" : [ {
+                    "name" : "value",
+                    "type" : {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    }
+                  }, {
+                    "name" : "_name",
+                    "type" : [ "null", {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    } ],
+                    "default" : null
+                  } ]
+                } ],
+                "default" : null
+              }, {
+                "name" : "accountNumber",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              }, {
+                "name" : "worker",
+                "type" : [ "null", {
+                  "type" : "record",
+                  "name" : "Worker",
+                  "namespace" : "org.nrf_arts.ixretail.namespace.avro.customerdomainspecific",
+                  "fields" : [ {
+                    "name" : "workerID",
+                    "type" : {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    }
+                  } ]
+                } ],
+                "default" : null
+              }, {
+                "name" : "_businessCustomerFlag",
+                "type" : [ "null", "boolean" ],
+                "default" : null
+              }, {
+                "name" : "_entryMethod",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              }, {
+                "name" : "customerID",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              }, {
+                "name" : "adeoProfessionalOrganizationClientNumber",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "loyaltyAccount",
+            "type" : [ "null", {
+              "type" : "record",
+              "name" : "LoyaltyAccount",
+              "namespace" : "org.nrf_arts.ixretail.namespace.avro.retailtransactionbase",
+              "fields" : [ {
+                "name" : "customerID",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              }, {
+                "name" : "loyaltyAccount",
+                "type" : [ "null", {
+                  "type" : "record",
+                  "name" : "LoyaltyAccountType",
+                  "fields" : [ {
+                    "name" : "loyaltyProgramID",
+                    "type" : [ "null", {
+                      "type" : "record",
+                      "name" : "LoyaltyProgramIDType",
+                      "fields" : [ {
+                        "name" : "value",
+                        "type" : {
+                          "type" : "string",
+                          "avro.java.string" : "String"
+                        }
+                      } ]
+                    } ],
+                    "default" : null
+                  }, {
+                    "name" : "loyaltyAccountID",
+                    "type" : [ "null", {
+                      "type" : "record",
+                      "name" : "LoyaltyAccountIDType",
+                      "fields" : [ {
+                        "name" : "value",
+                        "type" : {
+                          "type" : "string",
+                          "avro.java.string" : "String"
+                        }
+                      } ]
+                    } ],
+                    "default" : null
+                  }, {
+                    "name" : "points",
+                    "type" : [ "null", {
+                      "type" : "array",
+                      "items" : {
+                        "type" : "record",
+                        "name" : "PointsCommonData",
+                        "fields" : [ {
+                          "name" : "value",
+                          "type" : {
+                            "type" : "string",
+                            "avro.java.string" : "String",
+                            "java-class" : "java.math.BigDecimal"
+                          }
+                        }, {
+                          "name" : "_type",
+                          "type" : [ "null", {
+                            "type" : "string",
+                            "avro.java.string" : "String"
+                          } ],
+                          "default" : null
+                        } ]
+                      },
+                      "java-class" : "java.util.ArrayList"
+                    } ],
+                    "default" : null
+                  } ]
+                } ],
+                "default" : null
+              }, {
+                "name" : "loyaltyCard",
+                "type" : [ "null", {
+                  "type" : "record",
+                  "name" : "LoyaltyCardType",
+                  "fields" : [ {
+                    "name" : "primaryAccountNumber",
+                    "type" : {
+                      "type" : "string",
+                      "avro.java.string" : "String"
+                    }
+                  } ]
+                } ],
+                "default" : null
+              } ]
+            } ],
+            "default" : null
+          }, {
+            "name" : "transactionLink",
+            "type" : [ "null", {
+              "type" : "array",
+              "items" : {
+                "type" : "record",
+                "name" : "TransactionLink",
+                "namespace" : "org.nrf_arts.ixretail.namespace.avro.retailtransactionbase",
+                "fields" : [ {
+                  "name" : "transactionID",
+                  "type" : [ "null", {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  } ],
+                  "default" : null
+                }, {
+                  "name" : "lineItemSequenceNumber",
+                  "type" : [ "null", "long" ],
+                  "default" : null
+                }, {
+                  "name" : "_reasonCode",
+                  "type" : [ "null", {
+                    "type" : "string",
+                    "avro.java.string" : "String"
+                  } ],
+                  "default" : null
+                } ]
+              },
+              "java-class" : "java.util.ArrayList"
+            } ],
+            "default" : null
+          }, {
+            "name" : "adeoTaxSummary",
+            "type" : [ "null", {
+              "type" : "array",
+              "items" : "ItemTaxType",
+              "java-class" : "java.util.ArrayList"
+            } ],
+            "default" : null
+          }, {
+            "name" : "adeoReasonCode",
+            "type" : {
+              "type" : "record",
+              "name" : "AdeoReasonCode",
+              "namespace" : "com.adeo.payment.data.repository.avro",
+              "fields" : [ {
+                "name" : "value",
+                "type" : [ "null", {
+                  "type" : "string",
+                  "avro.java.string" : "String"
+                } ],
+                "default" : null
+              } ]
+            }
+          } ]
+        } ],
+        "default" : null
+      }, {
+        "name" : "retailTransaction",
+        "type" : [ "null", {
+          "type" : "record",
+          "name" : "RetailTransactionDomainSpecific",
+          "fields" : [ {
+            "name" : "_transactionStatus",
+            "type" : {
+              "type" : "string",
+              "avro.java.string" : "String"
+            }
+          }, {
+            "name" : "lineItem",
+            "type" : {
+              "type" : "array",
+              "items" : "LineItemDomainSpecific",
+              "java-class" : "java.util.ArrayList"
+            }
+          }, {
+            "name" : "total",
+            "type" : {
+              "type" : "array",
+              "items" : "TransactionTotalBase",
+              "java-class" : "java.util.ArrayList"
+            }
+          }, {
+            "name" : "customer",
+            "type" : [ "null", "CustomerDomainSpecific" ],
+            "default" : null
+          }, {
+            "name" : "loyaltyAccount",
+            "type" : [ "null", "org.nrf_arts.ixretail.namespace.avro.retailtransactionbase.LoyaltyAccount" ],
+            "default" : null
+          }, {
+            "name" : "transactionLink",
+            "type" : [ "null", {
+              "type" : "array",
+              "items" : "org.nrf_arts.ixretail.namespace.avro.retailtransactionbase.TransactionLink",
+              "java-class" : "java.util.ArrayList"
+            } ],
+            "default" : null
+          }, {
+            "name" : "adeoTaxSummary",
+            "type" : [ "null", {
+              "type" : "array",
+              "items" : "ItemTaxType",
+              "java-class" : "java.util.ArrayList"
+            } ],
+            "default" : null
+          } ]
+        } ],
+        "default" : null
+      }, {
+        "name" : "adeoFiscalInformation",
+        "type" : [ "null", {
+          "type" : "map",
+          "values" : {
+            "type" : "string",
+            "avro.java.string" : "String"
+          },
+          "avro.java.string" : "String"
+        } ],
+        "default" : null
+      } ]
+    }
+  } ]
+}

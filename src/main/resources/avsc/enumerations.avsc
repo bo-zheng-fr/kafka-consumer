@@ -1,0 +1,686 @@
+{
+    "name": "enumerations",
+    "type": "array",
+    "items": [
+        {
+            "type": "enum",
+            "name": "DateTimeTypeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Message",
+                "Transaction",
+                "End",
+                "Start"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "TransactionStatusEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Finished",
+                "Voided",
+                "PostVoided",
+                "Suspended",
+                "SuspendedDeleted",
+                "Canceled"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "TransactionLinkReasonEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Resume",
+                "Return",
+                "Voided",
+                "ReceiptReprint",
+                "ADEO_SuspendedDeleted"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "CustomerOrderTransactionReasonCodeEnumeration",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "CustomerWantsToContinueShopping",
+                "CustomerMissedPayment",
+                "CustomerChangeMind",
+                "TechnicalCleanAtEndOfDay",
+                "Other"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "AdeoReasonCodeCommonDataEnumeration",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "ADEO_Other",
+                "ADEO_ChequeRemittance",
+                "ADEO_BankCashDeposit",
+                "ADEO_SafeDrop_withdrawalDeposit",
+                "ADEO_SafeDrop_ReceiptofCurrency",
+                "ADEO_SafeDrop_Transfer",
+                "ADEO_SafeLoan",
+                "ADEO_TillLoan",
+                "ADEO_EnvelopeTransfer"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "ReceiptTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "ReceiptReprint",
+                "GiftReceipt"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "SoftwareTypeCodesEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "ADEO_Register",
+                "ADEO_CustomerOrder",
+                "ADEO_Customer",
+                "ADEO_Payment",
+                "ADEO_Invoice",
+                "ADEO_Cotation",
+                "ADEO_Cart"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "OperatorTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Cashier",
+                "Checker",
+                "ADEO_OperatorSource",
+                "ADEO_OperatorTarget",
+                "ADEO_VirtualCashier",
+                "ADEO_SafeCashier"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "CurrencyTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "ADP",
+                "AED",
+                "AFA",
+                "ALL",
+                "AMD",
+                "ANG",
+                "AOA",
+                "ARS",
+                "ATS",
+                "AUD",
+                "AWG",
+                "AZM",
+                "BAM",
+                "BBD",
+                "BDT",
+                "BEF",
+                "BGL",
+                "BGN",
+                "BHD",
+                "BIF",
+                "BMD",
+                "BND",
+                "BOB",
+                "BOV",
+                "BRL",
+                "BSD",
+                "BTN",
+                "BWP",
+                "BYR",
+                "BZD",
+                "CAD",
+                "CDF",
+                "CHF",
+                "CLF",
+                "CLP",
+                "CNY",
+                "COP",
+                "CRC",
+                "CUP",
+                "CVE",
+                "CYP",
+                "CZK",
+                "DEM",
+                "DJF",
+                "DKK",
+                "DOP",
+                "DZD",
+                "ECS",
+                "ECV",
+                "EEK",
+                "EGP",
+                "ERN",
+                "ESP",
+                "ETB",
+                "EUR",
+                "FIM",
+                "FJD",
+                "FKP",
+                "FRF",
+                "GBP",
+                "GEL",
+                "GHC",
+                "GIP",
+                "GMD",
+                "GNF",
+                "GRD",
+                "GTQ",
+                "GWP",
+                "GYD",
+                "HKD",
+                "HNL",
+                "HRK",
+                "HTG",
+                "HUF",
+                "IDR",
+                "IEP",
+                "ILS",
+                "INR",
+                "IQD",
+                "IRR",
+                "ISK",
+                "ITL",
+                "JMD",
+                "JOD",
+                "JPY",
+                "KES",
+                "KGS",
+                "KHR",
+                "KMF",
+                "KPW",
+                "KRW",
+                "KWD",
+                "KYD",
+                "KZT",
+                "LAK",
+                "LBP",
+                "LKR",
+                "LRD",
+                "LSL",
+                "LTL",
+                "LUF",
+                "LVL",
+                "LYD",
+                "MAD",
+                "MDL",
+                "MGF",
+                "MKD",
+                "MMK",
+                "MNT",
+                "MOP",
+                "MRO",
+                "MTL",
+                "MUR",
+                "MVR",
+                "MWK",
+                "MXN",
+                "MXV",
+                "MYR",
+                "MZM",
+                "NAD",
+                "NGN",
+                "NIO",
+                "NLG",
+                "NOK",
+                "NPR",
+                "NZD",
+                "OMR",
+                "PAB",
+                "PEN",
+                "PGK",
+                "PHP",
+                "PKR",
+                "PLN",
+                "PTE",
+                "PYG",
+                "QAR",
+                "ROL",
+                "RUB",
+                "RUR",
+                "RWF",
+                "SAR",
+                "SBD",
+                "SCR",
+                "SDD",
+                "SEK",
+                "SGD",
+                "SHP",
+                "SIT",
+                "SKK",
+                "SLL",
+                "SOS",
+                "SRG",
+                "STD",
+                "SVC",
+                "SYP",
+                "SZL",
+                "THB",
+                "TJS",
+                "TMM",
+                "TND",
+                "TOP",
+                "TPE",
+                "TRL",
+                "TTD",
+                "TWD",
+                "TZS",
+                "UAH",
+                "UGX",
+                "USD",
+                "USN",
+                "USS",
+                "UYU",
+                "UZS",
+                "VEB",
+                "VND",
+                "VUV",
+                "WST",
+                "XAF",
+                "XAG",
+                "XAU",
+                "XBA",
+                "XBB",
+                "XBC",
+                "XCD",
+                "XDR",
+                "XFO",
+                "XFU",
+                "XOF",
+                "XPD",
+                "XPF",
+                "XPT",
+                "XTS",
+                "YER",
+                "YUM",
+                "ZAR",
+                "ZMK",
+                "ZWD"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "TenderTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Cash",
+                "Check",
+                "CreditDebit",
+                "GiftCard",
+                "AdeoCustomerAccount",
+                "GiftCertificate",
+                "Voucher",
+                "Loyalty",
+                "MoneyOrder",
+                "OnlinePayment",
+                "AdeoInvoiceAccount"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "AdeoReasonEnumeration",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "ADEO_MoneyFound",
+                "ADEO_Other",
+                "ADEO_AgainstReimboursement",
+                "ADEO_SupplierInvoicePayment"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "TenderLoanTypesEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Normal",
+                "OpenFLoat"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "AdeoSettleBaseReason",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "ADEO_EndOfShift",
+                "ADEO_TillControl"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "TenderPickupTypesEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Normal",
+                "CloseFLoat"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "WorkstationIDTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "POS",
+                "Website"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "WorkstationIDWorkstationLocationEnumeration",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "ADEO_CheckoutLine",
+                "ADEO_SRMLine",
+                "ADEO_MaterialArea",
+                "ADEO_SCOZone1",
+                "ADEO_SafeArea",
+                "ADEO_Cloud"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "ChannelIDTypeEnum",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "ADEO_CCO",
+                "ADEO_SCO",
+                "ADEO_POI",
+                "ADEO_MCO",
+                "ADEO_ACO",
+                "ADEO_Kiosk",
+                "ADEO_Web",
+                "ADEO_Phone",
+                "ADEO_Mail",
+                "ADEO_2PMP"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "TouchPointIDNameEnum",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "ADEO_POS",
+                "ADEO_POI",
+                "ADEO_Virtual",
+                "ADEO_Tablet",
+                "ADEO_Mobile",
+                "ADEO_Unknown",
+                "ADEO_Desktop"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "AdeoExternalLinkTypeCode",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "CustomerOrderLine",
+                "SaleOrderLine",
+                "SaleOrderNr",
+                "ReturnFolderLine",
+                "CartLine",
+                "CustomerOrderNr",
+                "PaymentTransactionID",
+                "RentalNr"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "EntryMethodEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Automatic",
+                "Keyed",
+                "Scanned"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "StoredValueInstrumentActionEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Refund",
+                "Recharge"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "StoredValueInstrumentTypeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "AdeoCustomerAccount",
+                "AdeoInvoiceAccount"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "ItemIDTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "ItemID",
+                "POSDepartment"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "MerchandiseHierarchyLevelEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Department"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "DescriptionTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Long",
+                "Short"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "QuantityUnitOfMeasureCodeEnumeration",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "CMT",
+                "CMQ",
+                "CEL",
+                "FAH",
+                "FOT",
+                "GLI",
+                "GLL",
+                "GRM",
+                "INH",
+                "KG",
+                "KGM",
+                "LTR",
+                "MMT",
+                "OZ",
+                "LBR",
+                "ANN"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "SerialNumberTypeEnumeration",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "ScanData",
+                "ADEO_ItemLookuptext"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "RetailPriceModifierAmountActionEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Add",
+                "Subtract",
+                "Replace"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "RetailPriceModifierPercentActionEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Add",
+                "Subtract"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "PriceDerivationMethodCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "ByPercentage",
+                "ByAmount",
+                "FixedPrice"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "PriceDerivationApplicationTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Manual",
+                "Item",
+                "MixMatch"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "PriceDerivationReferenceTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Item",
+                "Customer",
+                "StoreCoupon",
+                "Employee",
+                "ADEO_Partner",
+                "ADEO_ExternalCoupon"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "PriceDerivationReasonCodeEnumeration",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "ADEO_Promotion",
+                "ADEO_CommercialDiscount",
+                "ADEO_NationalDiscount",
+                "ADEO_StoreDiscount",
+                "ADEO_ScheduledDiscount",
+                "ADEO_MutualAgreementDiscount_Not_CombinedSubTotal",
+                "ADEO_MutualAgreementDiscount_With_CombinedSubTotal",
+                "ADEO_MissingPriceDiscount",
+                "ADEO_OneTimeDiscount",
+                "ADEO_PostponedWithdrawal",
+                "ADEO_EmployeeDiscount",
+                "ADEO_WelcomeDiscount",
+                "ADEO_LoyaltyDiscount",
+                "ADEO_ServiceItemDiscount",
+                "ADEO_LoyaltyEmployeeDiscount",
+                "ADEO_PartnerDiscount",
+                "ADEO_EUR_LoyaltyDiscount",
+                "ADEO_EUR_EmployeeDiscount",
+                "ADEO_SpecialDayDiscount",
+                "ADEO_VoucherDiscount"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "AdeoApplicationScope",
+            "namespace": "com.adeo.payment.data.repository.avro.enumeration",
+            "symbols": [
+                "Item",
+                "ItemGroup",
+                "RetailTransaction"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "RetailPriceModifierMethodCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "PriceOverride",
+                "Promotion",
+                "RewardProgram",
+                "Coupon",
+                "QuantityDiscount"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "RetailTransactionItemTypeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Stock",
+                "Service",
+                "Fee"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "VoucherCardTypeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "GiftCertificate",
+                "Voucher"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "SubTenderTypeCodesEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Amex",
+                "DinersClub",
+                "DiscoverCard",
+                "GoogleWallet",
+                "MasterCard",
+                "PayPal",
+                "Visa",
+                "Fleet"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "POSLogCouponTypeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "ManufacturersCoupon",
+                "ElectronicCoupon",
+                "StoreCoupon"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "RetailTransactionTotalTypeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "TransactionGrossAmount",
+                "TransactionTaxAmount",
+                "TransactionGrandAmount",
+                "DiscountAmount",
+                "ADEO_SurchargeAmount"
+            ]
+        },
+        {
+            "type": "enum",
+            "name": "PointsTypeCodeEnumeration",
+            "namespace": "org.nrf_arts.ixretail.namespace.avro.enumeration",
+            "symbols": [
+                "Credited",
+                "Debited"
+            ]
+        }
+    ]
+}
